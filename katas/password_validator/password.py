@@ -1,3 +1,6 @@
+from katas.password_validator.errors import PasswordTooShortError
+
+
 class Password:
     _value: str
 
@@ -6,6 +9,9 @@ class Password:
 
     @classmethod
     def of(cls, value: str) -> 'Password':
+        if len(value) < 8:
+            raise PasswordTooShortError
+
         return Password(value)
 
     def __str__(self):
