@@ -9,10 +9,14 @@ class Password:
 
     @classmethod
     def of(cls, value: str) -> 'Password':
-        if len(value) < 8:
-            raise PasswordTooShortError
+        cls.validate_password_length(value)
 
         return Password(value)
+
+    @classmethod
+    def validate_password_length(cls, value):
+        if len(value) < 8:
+            raise PasswordTooShortError
 
     def __str__(self):
         return self._value
