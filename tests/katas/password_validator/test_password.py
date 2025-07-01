@@ -12,5 +12,5 @@ class PasswordShould(TestCase):
 
     def test_ensure_password_must_contain_at_least_eight_characters(self):
         with self.assertRaises(PasswordTooShortError):
-            password = Password.of("Cul4$so")
+            Password.of("Cul4$so")
 
